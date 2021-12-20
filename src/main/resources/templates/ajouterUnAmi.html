@@ -1,0 +1,111 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Ajouter un ami</title>
+    <link rel="stylesheet" type="text/css" th:href="@{bootstrap-5.1.2-dist/css/csss/style.css}"/>
+    <link th:rel="stylesheet" th:href="@{/webjars/bootstrap/5.1.1/css/bootstrap.min.css} "/>
+</head>
+
+<body>
+
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <a class="p-3 mb-2 bg-success text-white">Pay My Buddy</a>
+        </div>
+        <nav class="col navbar navbar-expand-lg">
+            <ul class="col-md-5 offset-md-6 navbar-nav">
+                <div class="col">
+                    <li class="nav-item">
+                        <a class="text-dark nav-link" href="/home">Home</a>
+                    </li>
+                </div>
+                <div class="col">
+                    <li class="nav-item active">
+                        <a class="text-primary nav-link" href="/transfer">Transfer</a>
+                    </li>
+                </div>
+                <div class="col">
+                    <li class="nav-item">
+                        <a class="text-dark nav-link" th:href="afficherProfile">Profile</a>
+                    </li>
+                </div>
+                <div class="col">
+                    <li class="nav-item">
+                        <a class="text-dark nav-link" href="contact">Contact</a>
+                    </li>
+                </div>
+                <div class="col">
+                    <li class="nav-item">
+                        <a class="text-dark nav-link" th:href="@{/seDeconnecter}">Log Off</a>
+                    </li>
+                </div>
+            </ul>
+        </nav>
+    </div>
+</div>
+</div>
+</div>
+
+<div class="bg-secondary">
+    <div class="container">
+        <div class="row">
+            <nav class="navbar navbar-expand navbar-secondary">
+                <ul class="navbar-nav">
+                    <div class="row">
+                        <li class="nav-item active">
+                            <a class="text-white nav-link" th:href="@{/home}">Home</a>
+                        </li>
+                    </div>
+                    <div class="row">
+                        <li class="nav-item active">
+                            <a class="text-white nav-link" th:href="@{/transfer}">transfer</a>
+                        </li>
+                    </div>
+                    <div class="row">
+                        <li class="nav-item active">
+                            <a class="text-primary nav-link" th:href="@{/ajouterUnAmi}">Add Connection</a>
+                        </li>
+                    </div>
+                </ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+<div class="container shadow-lg bg-white rounded col-md-6 offset-md-3 my-5 py-3">
+    <div class="row">
+        <form action="#" th:action="@{/ajouterUnAmi}" th:object="${ajouterUnAmiDto}" method="post">
+            <div class="form-group col ">
+                <input type="email" th:field="*{adresseMailAmi}" class="form-control" placeholder="adresseMailAmi">
+            <div class="form-group col py-2">
+                <input type="submit" value="Add Buddy" />
+            </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div class="container col px-3 shadow-lg bg-white rounded col-md-6 offset-md-3 my-5 py-3">
+    <a >Connection list</a>
+    <div>
+        <table class = "table table-responsive table-bordered table-striped">
+            <thead>
+            <tr class="px-3 py-3 bg-success text-white">
+                <th>Pseudo</th><th>AdresseMail</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="la:${listeAmiDeLaSession}">
+                <td th:text="${la.pseudo}"></td>
+                <td th:text="${la.adresseMail}"></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+</body>
+</html>

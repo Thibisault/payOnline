@@ -1,0 +1,34 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <title>Welcome</title>
+    <link th:rel="stylesheet" th:href="@{/webjars/bootstrap/5.1.1/css/bootstrap.min.css} "/>
+    <link rel="stylesheet" type="text/css" th:href="@{bootstrap-5.1.2-dist/css/csss/style.css}"/>
+</head>
+<body>
+
+<div class="container bg-light border border-dark text-center shadow-lg bg-white rounded col-md-6 offset-md-3 my-5">
+    <div class="row">
+        <div class="col py-5">
+            <a class="p-3 mb-2 bg-success text-white">Pay My Buddy</a>
+        </div>
+        <form action="#" th:action="@{/seConnecter}" th:object="${connexion}" method="post">
+            <div class="form-group col col-md-2 offset-md-5 py-2  ">
+                <input type="text" th:name="pseudo" class="form-control" placeholder="Pseudo">
+            </div>
+            <div class="form-group col col-md-2 offset-md-5 py-2" >
+                <input type="password" th:name="password" class="form-control" placeholder="Password">
+            </div>
+            <div class="form-group col py-3 mx-auto">
+                <input type="submit" value="Login" />
+            </div>
+            <div class="col mt-4 p-10 py-5 mx-auto">
+                <a class="p-2 bg-info text-white" th:href="@{/creerComptePersonnel}">Créer un compte</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+</body>
+</html>

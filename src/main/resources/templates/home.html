@@ -1,0 +1,70 @@
+<!DOC  TYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <title>Welcome</title>
+    <link th:rel="stylesheet" th:href="@{/webjars/bootstrap/5.1.1/css/bootstrap.min.css} "/>
+    <link th:rel="stylesheet" type="text/css" th:href="@{bootstrap-5.1.2-dist/css/csss/style.css}"/>
+</head>
+<body>
+
+
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <a class="p-3 mb-2 bg-success text-white">Pay My Buddy</a>
+        </div>
+        <nav class="col navbar navbar-expand-lg">
+            <ul class="col-md-5 offset-md-6 navbar-nav">
+                <div class="col">
+                    <li class="nav-item active">
+                        <a class="text-primary nav-link" href="/home">Home</a>
+                    </li>
+                </div>
+                <div class="col">
+                    <li class="nav-item">
+                        <a class="text-dark nav-link" href="/transfer">Transfer</a>
+                    </li>
+                </div>
+                <div class="col">
+                    <li class="nav-item">
+                        <a class="text-dark nav-link" th:href="afficherProfile">Profile</a>
+                    </li>
+                </div>
+                <div class="col">
+                    <li class="nav-item">
+                        <a class="text-dark nav-link" href="contact">Contact</a>
+                    </li>
+                </div>
+                <div class="col">
+                    <li class="nav-item">
+                        <a class="text-dark nav-link" th:href="@{/seDeconnecter}">Log Off</a>
+                    </li>
+                </div>
+            </ul>
+        </nav>
+    </div>
+</div>
+</div>
+</div>
+
+<div class="bg-secondary">
+    <div class="container">
+        <div class="row">
+            <nav class="navbar navbar-expand navbar-secondary">
+                <ul class="navbar-nav">
+                    <div class="row">
+                        <li class="nav-item active">
+                            <a class="text-primary nav-link" th:href="@{/home}">Home</a>
+                        </li>
+                    </div>
+                </ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+
+
+</body>
+</html>

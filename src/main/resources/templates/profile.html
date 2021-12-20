@@ -1,0 +1,128 @@
+<!DOC  TYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <title>Welcome</title>
+    <link th:rel="stylesheet" th:href="@{/webjars/bootstrap/5.1.1/css/bootstrap.min.css} "/>
+    <link th:rel="stylesheet" type="text/css" th:href="@{bootstrap-5.1.2-dist/css/csss/style.css}"/>
+</head>
+<body>
+
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <a class="p-3 mb-2 bg-success text-white">Pay My Buddy</a>
+        </div>
+        <nav class="col navbar navbar-expand-lg">
+            <ul class="col-md-5 offset-md-6 navbar-nav">
+                <div class="col">
+                    <li class="nav-item">
+                        <a class="text-dark nav-link" href="/home">Home</a>
+                    </li>
+                </div>
+                <div class="col">
+                    <li class="nav-item">
+                        <a class="text-dark nav-link" href="/transfer">Transfer</a>
+                    </li>
+                </div>
+                <div class="col">
+                    <li class="nav-item active">
+                        <a class="text-primary nav-link" th:href="afficherProfile">Profile</a>
+                    </li>
+                </div>
+                <div class="col">
+                    <li class="nav-item">
+                        <a class="text-dark nav-link" href="contact">Contact</a>
+                    </li>
+                </div>
+                <div class="col">
+                    <li class="nav-item">
+                        <a class="text-dark nav-link" th:href="@{/seDeconnecter}">Log Off</a>
+                    </li>
+                </div>
+            </ul>
+        </nav>
+    </div>
+</div>
+</div>
+</div>
+
+<div class="bg-secondary">
+    <div class="container">
+        <div class="row">
+            <nav class="navbar navbar-expand navbar-secondary">
+                <ul class="navbar-nav">
+                    <div class="row">
+                        <li class="nav-item active">
+                            <a class="text-white nav-link" th:href="@{/home}">Home</a>
+                        </li>
+                    </div>
+                    <div class="row">
+                        <li class="nav-item active">
+                            <a class="text-primary nav-link" th:href="@{/profile}">Profile</a>
+                        </li>
+                    </div>
+                </ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+<div class = "container">
+    <div class="row">
+    <h1>Faire un virement bancaire</h1>
+    <div class = "col">
+                <form th:action="@{/faireUnVirementBancaire}" th:object="${operationBancaireModel}" method="post">
+                    <a>Montant versement: <input type="text" th:field="*{montantVersement}" /></a>
+                    <a><input type="submit" value="Submit" /> <input type="reset" value="Reset" /></a>
+                </form>
+    </div>
+    </div>
+</div>
+
+<div class = "container">
+    <div class="row">
+    <h1>Faire un retrait bancaire</h1>
+    <div class = "col">
+                <form th:action="@{/faireUnRetraitBancaire}" th:object="${operationBancaireModel}" method="post">
+                    <a>Montant retrait: <input type="text" th:field="*{montantRetrait}" /></a>
+                    <a><input type="submit" value="Submit" /> <input type="reset" value="Reset" /></a>
+                </form>
+    </div>
+    </div>
+</div>
+
+<div class = "container">
+    <h1>Solde</h1>
+    <div class = "row">
+        <a th:text="${soldeCompte}"></a>
+    </div>
+</div>
+
+<div class = "container">
+    <h1>Opérations Bancaires</h1>
+    <div class = "row">
+        <table class = "table table-responsive table-bordered table-striped">
+            <thead>
+            <tr>
+                <th>idOperationBancaire</th><th>idComptePersonnel</th><th>datePrecise</th><th>description</th>
+                <th>montantRetrait</th><th>montantVersement</th><th>montantCompteBancaire</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="lop:${listeOperationBancaires}">
+                <td th:text="${lop.idOperationBancaire}"></td>
+                <td th:text="${lop.idDuComptePersonnel}"></td>
+                <td th:text="${lop.datePrecise}"></td>
+                <td th:text="${lop.description}"></td>
+                <td th:text="${lop.montantRetrait}"></td>
+                <td th:text="${lop.montantVersement}"></td>
+                <td th:text="${lop.montantCompteBancaire}"></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+</body>
+</html>
