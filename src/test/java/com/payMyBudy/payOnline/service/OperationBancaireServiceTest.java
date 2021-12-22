@@ -109,6 +109,7 @@ class OperationBancaireServiceTest {
     void persisterLaTraceDeOperationBancaire() {
     }
 
+    /*
     @Test
     void faireUnVirementBancaire() throws Exception {
         OperationBancaireModel operationBancaireModel = new OperationBancaireModel();
@@ -117,6 +118,7 @@ class OperationBancaireServiceTest {
         double soldeApresvirement = comptePersonnelModelEmetteur.getSolde();
         assertEquals(soldeAvantVirement *2, soldeApresvirement);
     }
+     */
 
     @Test
     void faireUnRetraitBancaire() throws Exception {

@@ -4,12 +4,16 @@ import com.payMyBudy.payOnline.model.ComptePersonnelModel;
 import com.payMyBudy.payOnline.repository.IComptePersonnelRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import security.SecurityConfig;
 
 import javax.transaction.Transactional;
 import java.util.List;
 
 @Service
 public class ComptePersonnelService {
+
+
+    SecurityConfig securityConfig = new SecurityConfig();
 
     @Autowired
     private IComptePersonnelRepository iComptePersonnelRepository;
@@ -27,6 +31,7 @@ public class ComptePersonnelService {
 
     @Transactional
     public ComptePersonnelModel ajouterComptePersonnelModelDansBdd(ComptePersonnelModel comptePersonnelModel){
+        comptePersonnelModel.setPassword(securityConfig.passwordEncoder().encode(comptePersonnelModel.getPassword()));
         return iComptePersonnelRepository.save(comptePersonnelModel);
     }
 
@@ -90,7 +95,7 @@ public class ComptePersonnelService {
 
     public ComptePersonnelModel seConnecter(String pseudo, String password) throws Exception {
         ComptePersonnelModel comptePersonnelModel = recupererComptePersonnelParPseudo(pseudo);
-        if (comptePersonnelModel.getPassword().equalsIgnoreCase(password)){
+        if (securityConfig.passwordEncoder().matches(password, comptePersonnelModel.getPassword())){
             return comptePersonnelModel;
         }
         throw new Exception("Le mot de passe ne correspond pas au pseudo");

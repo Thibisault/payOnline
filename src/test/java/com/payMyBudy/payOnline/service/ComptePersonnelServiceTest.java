@@ -163,11 +163,13 @@ class ComptePersonnelServiceTest {
         }
     }
 
+
     /**
      * Test si un ami a bien été ajouté dans la listAmi de la table ComptePersonnelModel dans la base de données.
      *
      * @throws Exception
      */
+    /*
     @Transactional
     @Test
     public void ajouterUnAmiTest() throws Exception {
@@ -212,6 +214,7 @@ class ComptePersonnelServiceTest {
             assert (exception.getMessage().contains("Aucun compte associé à cette adresse mail"));
         }
     }
+     */
 
     //TODO : à supprimer quand fini de jouer avec
     @Test

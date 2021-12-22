@@ -181,7 +181,7 @@ class VirementServiceTest {
         virementService.faireUneTransaction("commentaire", comptePersonnelModelEmetteur, comptePersonnelModelRecepteur, 10);
         virementService.faireUneTransaction("commentaire", comptePersonnelModelEmetteur, comptePersonnelModelRecepteur, 10);
         virementService.faireUneTransaction("commentaire", comptePersonnelModelEmetteur, comptePersonnelModelRecepteur, 10);
-        List<VirementModel> virementModelList = virementService.obtenirListeVirementPourUnComptePersonnel(comptePersonnelModelEmetteur);
-        System.out.println(virementModelList.size());
+        //List<ComptePersonnelModel> virementModelList = virementService.obtenirListeVirementPourUnComptePersonnel(comptePersonnelModelEmetteur);
+        //System.out.println(virementModelList.size());
     }
 }

@@ -1,6 +1,7 @@
 package com.payMyBudy.payOnline.repository;
 
 import com.payMyBudy.payOnline.model.ComptePersonnelModel;
+import com.payMyBudy.payOnline.model.VirementModel;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
@@ -24,6 +25,7 @@ public interface IComptePersonnelRepository extends JpaRepository<ComptePersonne
 
     public Optional<ComptePersonnelModel> findByIdComptePersonnelAndListAmi_AdresseMail(int idComptePersonnelModel ,String adresseMail);
 
+    //public Optional<ComptePersonnelModel> findByIdComptePersonnelAndVirementModelList_IdComptePersonnelEmetteurIn(int idComptePersonnelModel);
 
     public Optional<ComptePersonnelModel> findByAdresseMailAndPseudo(String adresseMail, String pseudo);
 }

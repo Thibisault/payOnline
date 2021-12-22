@@ -29,8 +29,8 @@ public class VirementService {
 
     @Transactional
     public List<VirementModel> obtenirListeVirementPourUnComptePersonnel(ComptePersonnelModel comptePersonnelModel){
-        List<VirementModel> virementModelList = iVirementRepository.findAllByidComptePersonnelEmetteur(comptePersonnelModel);
-        return virementModelList;
+        List<VirementModel> list = iComptePersonnelRepository.findById(comptePersonnelModel.getIdComptePersonnel()).get().getVirementModelList();
+        return comptePersonnelModel.getVirementModelList();
     }
 
     //Vérifier que les deux users sont bien amis grâce à l'adresse mail

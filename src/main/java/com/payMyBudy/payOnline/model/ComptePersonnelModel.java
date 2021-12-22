@@ -37,7 +37,7 @@ public class ComptePersonnelModel {
     @ToString.Exclude
     @OneToMany(
             mappedBy = "idComptePersonnel",
-            fetch = FetchType.EAGER,
+            fetch = FetchType.LAZY,
             cascade = CascadeType.ALL,
             orphanRemoval = true
     )
